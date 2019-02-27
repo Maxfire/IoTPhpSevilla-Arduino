@@ -19,8 +19,8 @@ void setup() {
 	//Start the serial communication
 	Serial.begin(9600); //Baud rate must be the same as is on xBee module
 	pinMode(ledPin, OUTPUT);
-   Serial2.begin(9600);
-    Serial2.print("BLEbee v1.0.0 Sketch setup...");
+   Serial.begin(9600);
+    Serial.print("BLEbee v1.0.0 Sketch setup...");
   ble.begin(9600);
 
   // Configuramos las filas y las columnas del LCD en este caso 16 columnas y 2 filas
@@ -39,7 +39,7 @@ void loop() {
  
   // Situamos el cursor en la columna 0 fila 0
   lcd.setCursor(0,0);
-  while (Serial.available()>0 && Serial2.available()){
+  while (Serial.available()>0 && Serial.available()){
   	//Read the incoming byte
     incomingByte = Serial.read();
     //Start the message when the '<' symbol is received
